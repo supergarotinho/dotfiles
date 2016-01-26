@@ -7,6 +7,7 @@ git config --global user.signingkey "7AD24624"
 
 curl https://install.meteor.com/ | sh
 
+brew cask install iterm2
 brew cask install google-chrome
 brew cask install telegram
 brew cask install spectacle
