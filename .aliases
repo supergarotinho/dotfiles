@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+alias dl="aria2c -c -s 8 -j 8 -x 8"
+alias lein="rlwrap lein"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -10,7 +12,6 @@ alias -- -="cd -"
 
 # Shortcuts
 alias d="cd ~/Dropbox"
-alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="git"
