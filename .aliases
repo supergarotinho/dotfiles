@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 alias dl="aria2c -c -s 8 -j 8 -x 8"
-alias lein="rlwrap lein"
+alias rlein="rlwrap lein"
+alias rnu="~/Projects/nu/nudev/nu"
+alias intellij="open -a /Applications/IntelliJ\ IDEA\ CE.app"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
