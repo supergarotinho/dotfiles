@@ -4,6 +4,7 @@ mkdir ~/Projects
 git config --global user.email "igor@borges.me"
 git config --global user.name "Igor1201"
 git config --global user.signingkey "7AD24624"
+git config --global core.excludesfile "~/.gitignore"
 
 curl https://install.meteor.com/ | sh
 
