@@ -2,7 +2,8 @@
 alias dl="aria2c -c -s 8 -j 8 -x 8"
 alias rlein="rlwrap lein"
 alias rnu="~/Projects/nu/nudev/nu"
-alias intellij="open -a /Applications/IntelliJ\ IDEA\ CE.app"
+alias intellij="open -a /Applications/IntelliJ\ IDEA.app"
+alias idea="open -a /Applications/IntelliJ\ IDEA.app"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -13,8 +14,8 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Dropbox"
-alias dt="cd ~/Desktop"
+alias dr="cd ~/Dropbox"
+alias d="cd ~/Desktop"
 alias p="cd ~/Projects"
 alias g="git"
 alias h="history"
