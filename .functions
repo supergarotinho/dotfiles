@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+function color() {
+  read stdin;
+  echo $stdin | grep -E "$1|$";
+}
+
 rawurlencode() {
   local string="${1}"
   local strlen=${#string}
