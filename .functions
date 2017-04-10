@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+vscode () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
 function color() {
   read stdin;
   echo $stdin | grep -E "$1|$";

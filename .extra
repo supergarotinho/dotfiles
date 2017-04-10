@@ -1,10 +1,25 @@
 export GOPATH=/Users/igor/gopath
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$GOPATH/bin:$PATH"
+export PATH="/usr/local/bin:$GOPATH/bin:$PATH"
 
-export ANDROID_HOME=/Users/igor/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/build-tools
+export ANDROID_HOME="/Users/igor/Library/Android/sdk"
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export ANDROID_SDK_HOME=$ANDROID_HOME
+export ANDROID_NDK="/Users/igor/Library/Android/ndk"
+export ANDROID_NDK_ROOT=$ANDROID_NDK
+export ANDROID_NDK_HOME=$ANDROID_NDK
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home"
+
+export PATH="$PATH:$ANDROID_HOME"
+export PATH="$PATH:$ANDROID_HOME/tools"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/build-tools/23.0.2"
+
+export ROME_ENDPOINT="http://macmini-mobile.local:3000/"
+export ROME_KEY="e04ff6e2-ae64-4aae-a2de-4f7a04708b8b"
+
+export PATH="$PATH:$JAVA_HOME/bin"
+
+[[ $(ssh-add -l | wc -l | tr -d ' ') = 0 ]] && ssh-add -K
 
 [ -e "$HOME/.nurc" ] && source "$HOME/.nurc"
