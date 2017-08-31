@@ -5,6 +5,7 @@ alias rnu="~/Projects/nu/nucli/nu"
 alias intellij="open -a /Applications/IntelliJ\ IDEA.app"
 alias idea="open -a /Applications/IntelliJ\ IDEA.app"
 alias ast="open -a \"Android Studio\""
+alias e="emacsclient -c"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."

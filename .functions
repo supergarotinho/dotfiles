@@ -2,6 +2,10 @@
 
 vscode () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
+function emu () {
+    emulator -avd $(emulator -list-avds | head -n1) >&/dev/null & disown
+}
+
 function color() {
   read stdin;
   echo $stdin | grep -E "$1|$";
