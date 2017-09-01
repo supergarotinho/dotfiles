@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 # Go shit
-export GOPATH=/Users/igor/gopath
+export GOPATH=$HOME/gopath
 export PATH="/usr/local/bin:$GOPATH/bin:$PATH"
 
 # Android shit
-export ANDROID_HOME="/Users/igor/Library/Android/sdk"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 export ANDROID_SDK_ROOT=$ANDROID_HOME
-export ANDROID_NDK="/Users/igor/Library/Android/ndk"
+export ANDROID_NDK="$HOME/Library/Android/ndk"
 export ANDROID_NDK_ROOT=$ANDROID_NDK
 export ANDROID_NDK_HOME=$ANDROID_NDK
 export PATH="$PATH:$ANDROID_HOME"
