@@ -20,6 +20,8 @@ function doIt() {
 		--exclude "bootstrap.sh" \
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
+		--exclude "igor.zsh-theme" \
+		--exclude "brew.sh" \
 		-avh --no-perms . ~;
 
 	customDoIt;
