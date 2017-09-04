@@ -64,8 +64,10 @@ values."
    dotspacemacs-additional-packages '(
                                       osx-clipboard
                                       darkokai-theme
+                                      magithub
                                       parinfer
                                       vue-mode
+                                      dart-mode
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -326,8 +328,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq web-mode-markup-indent-offset n) ; web-mode, html tag in html file
   (setq web-mode-css-indent-offset n) ; web-mode, css in html file
   (setq web-mode-code-indent-offset n) ; web-mode, js code in html file
-  (setq css-indent-offset n) ; css-mode
-  )
+  (setq css-indent-offset n)) ; css-mode
+
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -337,16 +339,21 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; shared clipboard with osx
   (osx-clipboard-mode +1)
 
+  ;; nubank shit
   (let ((path "~/Projects/nu/nudev/ides/emacs/nu.el"))
     (when (file-exists-p path)
       (load path)))
 
+  ;; custom identation shit
   (my-indentation 2)
 
+  ;; vue shit
   (use-package vue-mode)
 
+  ;; clojure shit
   (use-package parinfer
     :ensure t
     :bind
@@ -365,7 +372,24 @@ you should place your code here."
       (add-hook 'common-lisp-mode-hook #'parinfer-mode)
       (add-hook 'scheme-mode-hook #'parinfer-mode)
       (add-hook 'lisp-mode-hook #'parinfer-mode)))
-  )
+
+  ;; some random auto modes
+  (mapcar (lambda (mode-pair)
+            (setq auto-mode-alist (cons `(,(car mode-pair) . ,(cadr mode-pair))
+                                        auto-mode-alist)))
+          '(("\\.tsx$" typescript-mode)
+            ("\\.json\\.base$" json-mode)
+            ("rc$" shell-script-mode)))
+
+  ;; dart shit
+  (setq dart-enable-analysis-server t)
+  (add-hook 'dart-mode-hook 'flycheck-mode)
+
+  ;; magithub shit
+  (use-package magithub
+    :after magit
+    :config (magithub-feature-autoinject t)))
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -376,7 +400,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (parinfer web-mode web-beautify vue-mode ssass-mode vue-html-mode mmm-mode tide typescript-mode flycheck tern tagedit smeargle slim-mode scss-mode sass-mode pug-mode osx-clipboard orgit magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter evil-magit magit magit-popup git-commit with-editor emmet-mode diff-hl darkokai-theme coffee-mode clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider queue clojure-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (dart-mode magithub ghub+ apiwrap ghub parinfer web-mode web-beautify vue-mode ssass-mode vue-html-mode mmm-mode tide typescript-mode flycheck tern tagedit smeargle slim-mode scss-mode sass-mode pug-mode osx-clipboard orgit magit-gitflow livid-mode skewer-mode simple-httpd less-css-mode json-mode json-snatcher json-reformat js2-refactor js2-mode js-doc helm-gitignore helm-css-scss haml-mode gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter evil-magit magit magit-popup git-commit with-editor emmet-mode diff-hl darkokai-theme coffee-mode clj-refactor inflections edn multiple-cursors paredit yasnippet peg cider-eval-sexp-fu cider queue clojure-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

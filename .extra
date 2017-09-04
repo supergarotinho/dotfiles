@@ -28,6 +28,9 @@ export NVM_DIR="$HOME/.nvm"
 # Ruby shit
 export PATH="$PATH:$HOME/.rvm/bin"
 
+# Flutter shit
+export PATH="$PATH:$HOME/Projects/flutter/bin"
+
 # Keychain shit
 [[ $(ssh-add -l | wc -l | tr -d ' ') = 0 ]] && ssh-add -K
 
