@@ -33,6 +33,7 @@ export PATH="$PATH:$HOME/Projects/flutter/bin"
 
 # Keychain shit
 # [[ $(ssh-add -l | wc -l | tr -d ' ') = 0 ]] && ssh-add -K
+pkill ssh-agent gpg-agent
 eval $(gpg-agent --daemon --enable-ssh-support 2> /dev/null)
 
 # Nubank shit
