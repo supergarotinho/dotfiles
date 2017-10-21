@@ -11,7 +11,9 @@ function customDoIt() {
 	git config --global core.excludesfile "~/.gitignore"
 
 	mkdir -p "$HOME/.oh-my-zsh/themes"
-	cp "igor.zsh-theme" "$HOME/.oh-my-zsh/themes/"
+  cp "igor.zsh-theme" "$HOME/.oh-my-zsh/themes/"
+
+	cp -R "sublime/" "$HOME/Library/Application Support/Sublime Text 3/Packages/User/"
 }
 
 function doIt() {

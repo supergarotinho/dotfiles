@@ -38,3 +38,7 @@ eval $(gpg-agent --daemon --enable-ssh-support 2> /dev/null)
 
 # Nubank shit
 [ -e "$HOME/.nurc" ] && source "$HOME/.nurc"
+
+# misc shit
+export PATH="$PATH:/usr/local/sbin"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

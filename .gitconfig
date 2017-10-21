@@ -1,5 +1,8 @@
 [alias]
 
+  # fucking upstream shit
+  set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l = log --pretty=oneline -n 20 --graph --abbrev-commit
 
@@ -183,3 +186,12 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[user]
+	email = igor@borges.me
+	name = Igor Borges
+	signingkey = 7AD24624
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
