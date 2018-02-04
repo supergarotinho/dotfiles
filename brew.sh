@@ -103,5 +103,8 @@ brew install webkit2png
 brew install zopfli
 brew install aria2
 
+# New softwares
+brew install zsh zsh-completions
+
 # Remove outdated versions from the cellar.
 brew cleanup
