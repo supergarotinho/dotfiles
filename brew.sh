@@ -106,5 +106,10 @@ brew install aria2
 # New softwares
 brew install zsh zsh-completions
 
+# Adding CTRL+T; CTRL+R and ALT+C to shell
+brew install fzf
+/usr/local/opt/fzf/install
+# There is a option to add a chrome history also: http://sourabhbajaj.com/mac-setup/iTerm/fzf.html
+
 # Remove outdated versions from the cellar.
 brew cleanup
